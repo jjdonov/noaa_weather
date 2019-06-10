@@ -4,6 +4,7 @@ defmodule NoaaWeather.MixProject do
   def project do
     [
       app: :noaa_weather,
+      escript: escript_config(),
       version: "0.1.0",
       elixir: "~> 1.7",
       start_permanent: Mix.env() == :prod,
@@ -22,6 +23,12 @@ defmodule NoaaWeather.MixProject do
   defp deps do
     [
       {:httpoison, "~> 1.4"}
+    ]
+  end
+
+  defp escript_config do
+    [
+      main_module: NoaaWeather.CLI
     ]
   end
 end
